@@ -19,6 +19,7 @@
 		D436944C24B3843D00902846 /* ParseChatDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D436944B24B3843D00902846 /* ParseChatDemoTests.m */; };
 		D436945724B3843D00902846 /* ParseChatDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D436945624B3843D00902846 /* ParseChatDemoUITests.m */; };
 		D436946724B3893C00902846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436946624B3893C00902846 /* LoginViewController.m */; };
+		D436946A24B38ED600902846 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436946924B38ED600902846 /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		D436945824B3843D00902846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D436946524B3893C00902846 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D436946624B3893C00902846 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D436946824B38ED600902846 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		D436946924B38ED600902846 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		F342F225F75F75B815DAABDF /* Pods_ParseChatDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseChatDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4301CAA8E9E3E5B8E6B63A9 /* Pods_ParseChatDemo_ParseChatDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseChatDemo_ParseChatDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -181,6 +184,8 @@
 			children = (
 				D436946524B3893C00902846 /* LoginViewController.h */,
 				D436946624B3893C00902846 /* LoginViewController.m */,
+				D436946824B38ED600902846 /* ChatViewController.h */,
+				D436946924B38ED600902846 /* ChatViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 			files = (
 				D436943124B3843C00902846 /* AppDelegate.m in Sources */,
 				D436944224B3843D00902846 /* main.m in Sources */,
+				D436946A24B38ED600902846 /* ChatViewController.m in Sources */,
 				D436943424B3843C00902846 /* SceneDelegate.m in Sources */,
 				D436946724B3893C00902846 /* LoginViewController.m in Sources */,
 			);
