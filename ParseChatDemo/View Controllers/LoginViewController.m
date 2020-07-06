@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -22,9 +23,31 @@
 }
 
 - (IBAction)didPressSignUp:(id)sender {
+    [self registerUser];
 }
 
 - (IBAction)didPressLogin:(id)sender {
+}
+
+- (void)registerUser {
+    // Initialize a user object
+    PFUser *newUser = [PFUser user];
+    
+    // Set user properties
+    newUser.username = self.usernameTextField.text;
+    //newUser.email = self.emailField.text;
+    newUser.password = self.passwordTextField.text;
+    
+    // Call sign up function on the object
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User registered successfully");
+            
+            // Manually segue to logged in view
+        }
+    }];
 }
 
 /*
