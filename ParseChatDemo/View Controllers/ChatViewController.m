@@ -7,8 +7,10 @@
 //
 
 #import "ChatViewController.h"
+#import <Parse/Parse.h>
 
 @interface ChatViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *chatMessageField;
 
 @end
 
@@ -16,6 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (IBAction)didTapSend:(id)sender {
+    PFObject *chatMessage = [PFObject objectWithClassName:@"Message_fbu2020"];
+    chatMessage[@"text"] = self.chatMessageField.text;
+    [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"The message was saved!");
+            self.chatMessageField.text = @"";
+        } else {
+            NSLog(@"Problem saving message: %@",error.localizedDescription);
+        }
+    }];
 }
 
 /*
