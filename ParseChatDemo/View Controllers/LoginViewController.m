@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (IBAction)didPressSignUp:(id)sender {
@@ -34,10 +34,19 @@
     // Initialize a user object
     PFUser *newUser = [PFUser user];
     
+    // Check for empty username or password
+    if ([self.usernameTextField.text isEqual:@""]) {
+        [self createAlertWithMessage:@"Please enter your username"];
+    }
+    if([self.passwordTextField.text isEqual:@""]) {
+        [self createAlertWithMessage:@"Please enter your password"];
+    }
+    
     // Set user properties
     newUser.username = self.usernameTextField.text;
-    //newUser.email = self.emailField.text;
     newUser.password = self.passwordTextField.text;
+    
+    
     
     // Call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -63,6 +72,34 @@
             
             // Display view controller that needs to shown after successful login
         }
+    }];
+}
+
+- (void)createAlertWithMessage:(NSString *) alertMessage {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Field Required"
+           message:alertMessage
+    preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle cancel response here. Doing nothing will dismiss the view.
+                                                      }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+                                                     }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
     }];
 }
 
