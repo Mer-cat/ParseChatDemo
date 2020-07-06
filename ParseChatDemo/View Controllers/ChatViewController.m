@@ -57,7 +57,7 @@
     
     // Associate correct cell with correct chat
     PFObject *message = self.chatArray[indexPath.row];
-    cell.textLabel.text = message[@"text"];
+    cell.chatLabel.text = message[@"text"];
     
     return cell;
 }
@@ -71,10 +71,9 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2020"];
     [query orderByDescending:@"createdAt"];
 
-    // fetch data asynchronously
+    // Fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            // do something with the array of object returned by the call
             self.chatArray = posts;
             [self.tableView reloadData];
         } else {
