@@ -1,0 +1,6 @@
+framework module Pods_ParseChatDemo_ParseChatDemoUITests {
+  umbrella header "Pods-ParseChatDemo-ParseChatDemoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
