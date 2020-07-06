@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,13 +12,13 @@
 		B7E485B82F79C211CAEB7681 /* Pods_ParseChatDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01AD66EB82AA0AA9F3F263 /* Pods_ParseChatDemo.framework */; };
 		D436943124B3843C00902846 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D436943024B3843C00902846 /* AppDelegate.m */; };
 		D436943424B3843C00902846 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D436943324B3843C00902846 /* SceneDelegate.m */; };
-		D436943724B3843C00902846 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436943624B3843C00902846 /* ViewController.m */; };
 		D436943A24B3843C00902846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D436943824B3843C00902846 /* Main.storyboard */; };
 		D436943C24B3843D00902846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D436943B24B3843D00902846 /* Assets.xcassets */; };
 		D436943F24B3843D00902846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D436943D24B3843D00902846 /* LaunchScreen.storyboard */; };
 		D436944224B3843D00902846 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D436944124B3843D00902846 /* main.m */; };
 		D436944C24B3843D00902846 /* ParseChatDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D436944B24B3843D00902846 /* ParseChatDemoTests.m */; };
 		D436945724B3843D00902846 /* ParseChatDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D436945624B3843D00902846 /* ParseChatDemoUITests.m */; };
+		D436946724B3893C00902846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436946624B3893C00902846 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,6 @@
 		D436943024B3843C00902846 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D436943224B3843C00902846 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		D436943324B3843C00902846 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		D436943524B3843C00902846 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D436943624B3843C00902846 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D436943924B3843C00902846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D436943B24B3843D00902846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D436943E24B3843D00902846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +62,8 @@
 		D436945224B3843D00902846 /* ParseChatDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParseChatDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D436945624B3843D00902846 /* ParseChatDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseChatDemoUITests.m; sourceTree = "<group>"; };
 		D436945824B3843D00902846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D436946524B3893C00902846 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D436946624B3893C00902846 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F342F225F75F75B815DAABDF /* Pods_ParseChatDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseChatDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4301CAA8E9E3E5B8E6B63A9 /* Pods_ParseChatDemo_ParseChatDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseChatDemo_ParseChatDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,7 +116,6 @@
 				7250B40ADD95F4006B8ED1A2 /* Pods-ParseChatDemoTests.debug.xcconfig */,
 				B56BBBF015D5B5D19C23A26C /* Pods-ParseChatDemoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,12 +144,11 @@
 		D436942E24B3843C00902846 /* ParseChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D436946424B3890B00902846 /* View Controllers */,
 				D436942F24B3843C00902846 /* AppDelegate.h */,
 				D436943024B3843C00902846 /* AppDelegate.m */,
 				D436943224B3843C00902846 /* SceneDelegate.h */,
 				D436943324B3843C00902846 /* SceneDelegate.m */,
-				D436943524B3843C00902846 /* ViewController.h */,
-				D436943624B3843C00902846 /* ViewController.m */,
 				D436943824B3843C00902846 /* Main.storyboard */,
 				D436943B24B3843D00902846 /* Assets.xcassets */,
 				D436943D24B3843D00902846 /* LaunchScreen.storyboard */,
@@ -176,6 +174,15 @@
 				D436945824B3843D00902846 /* Info.plist */,
 			);
 			path = ParseChatDemoUITests;
+			sourceTree = "<group>";
+		};
+		D436946424B3890B00902846 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D436946524B3893C00902846 /* LoginViewController.h */,
+				D436946624B3893C00902846 /* LoginViewController.m */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,10 +423,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D436943724B3843C00902846 /* ViewController.m in Sources */,
 				D436943124B3843C00902846 /* AppDelegate.m in Sources */,
 				D436944224B3843D00902846 /* main.m in Sources */,
 				D436943424B3843C00902846 /* SceneDelegate.m in Sources */,
+				D436946724B3893C00902846 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
