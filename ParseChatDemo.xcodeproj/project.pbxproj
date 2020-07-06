@@ -20,6 +20,7 @@
 		D436945724B3843D00902846 /* ParseChatDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D436945624B3843D00902846 /* ParseChatDemoUITests.m */; };
 		D436946724B3893C00902846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436946624B3893C00902846 /* LoginViewController.m */; };
 		D436946A24B38ED600902846 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436946924B38ED600902846 /* ChatViewController.m */; };
+		D436946E24B394E300902846 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D436946D24B394E300902846 /* ChatCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		D436946624B3893C00902846 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D436946824B38ED600902846 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		D436946924B38ED600902846 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		D436946C24B394E300902846 /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		D436946D24B394E300902846 /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		F342F225F75F75B815DAABDF /* Pods_ParseChatDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseChatDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4301CAA8E9E3E5B8E6B63A9 /* Pods_ParseChatDemo_ParseChatDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseChatDemo_ParseChatDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,6 +150,7 @@
 		D436942E24B3843C00902846 /* ParseChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D436946B24B3949600902846 /* Views */,
 				D436946424B3890B00902846 /* View Controllers */,
 				D436942F24B3843C00902846 /* AppDelegate.h */,
 				D436943024B3843C00902846 /* AppDelegate.m */,
@@ -188,6 +192,15 @@
 				D436946924B38ED600902846 /* ChatViewController.m */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D436946B24B3949600902846 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D436946C24B394E300902846 /* ChatCell.h */,
+				D436946D24B394E300902846 /* ChatCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +444,7 @@
 				D436943124B3843C00902846 /* AppDelegate.m in Sources */,
 				D436944224B3843D00902846 /* main.m in Sources */,
 				D436946A24B38ED600902846 /* ChatViewController.m in Sources */,
+				D436946E24B394E300902846 /* ChatCell.m in Sources */,
 				D436943424B3843C00902846 /* SceneDelegate.m in Sources */,
 				D436946724B3893C00902846 /* LoginViewController.m in Sources */,
 			);
