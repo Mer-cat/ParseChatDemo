@@ -36,10 +36,10 @@
     
     // Check for empty username or password
     if ([self.usernameTextField.text isEqual:@""]) {
-        [self createAlertWithMessage:@"Please enter your username"];
+        [self createAlertWithMessage:@"Please enter your username" withTitle:@"Username required"];
     }
     if([self.passwordTextField.text isEqual:@""]) {
-        [self createAlertWithMessage:@"Please enter your password"];
+        [self createAlertWithMessage:@"Please enter your password" withTitle:@"Password required"];
     }
     
     // Set user properties
@@ -52,6 +52,7 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
+            [self createAlertWithMessage:error.localizedDescription withTitle:@"Error signing up"];
         } else {
             NSLog(@"User registered successfully");
             
@@ -66,7 +67,9 @@
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
+            
             NSLog(@"User log in failed: %@", error.localizedDescription);
+            [self createAlertWithMessage:error.localizedDescription withTitle:@"Error logging in"];
         } else {
             NSLog(@"User logged in successfully");
             
@@ -75,8 +78,8 @@
     }];
 }
 
-- (void)createAlertWithMessage:(NSString *) alertMessage {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Field Required"
+- (void)createAlertWithMessage:(NSString *) alertMessage withTitle:(NSString *)title {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
            message:alertMessage
     preferredStyle:(UIAlertControllerStyleAlert)];
     
