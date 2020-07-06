@@ -57,6 +57,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="kOR-UW-WEU" id="V7w-Za-Dcb"/>
                         <outlet property="usernameTextField" destination="KDY-Sm-bOy" id="cjC-WE-CV6"/>
+                        <segue destination="lcu-zR-LBr" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="s33-La-iTY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -84,6 +85,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcu-zR-LBr" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cLR-fe-3aC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gVp-om-Ahu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -55,8 +55,7 @@
             [self createAlertWithMessage:error.localizedDescription withTitle:@"Error signing up"];
         } else {
             NSLog(@"User registered successfully");
-            
-            // Manually segue to logged in view
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
 }
@@ -72,8 +71,7 @@
             [self createAlertWithMessage:error.localizedDescription withTitle:@"Error logging in"];
         } else {
             NSLog(@"User logged in successfully");
-            
-            // Display view controller that needs to shown after successful login
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
 }
