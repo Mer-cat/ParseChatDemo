@@ -13,6 +13,7 @@
 @interface ChatViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *chatMessageField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *chatArray;
 
 @end
 
@@ -23,6 +24,9 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    // Every second, refresh messages
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
 }
 
 - (IBAction)didTapSend:(id)sender {
@@ -50,12 +54,34 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
-    // TODO: Associate correct cell with correct chat
+    
+    // Associate correct cell with correct chat
+    PFObject *message = self.chatArray[indexPath.row];
+    cell.textLabel.text = message[@"text"];
+    
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.chatArray.count;
+}
+
+- (void)onTimer {
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2020"];
+    [query orderByDescending:@"createdAt"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.chatArray = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+
 }
 
 @end
