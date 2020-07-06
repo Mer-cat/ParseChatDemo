@@ -32,12 +32,52 @@
 - (IBAction)didTapSend:(id)sender {
     PFObject *chatMessage = [PFObject objectWithClassName:@"Message_fbu2020"];
     chatMessage[@"text"] = self.chatMessageField.text;
+    chatMessage[@"user"] = PFUser.currentUser;
     [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"The message was saved!");
             self.chatMessageField.text = @"";
         } else {
             NSLog(@"Problem saving message: %@",error.localizedDescription);
+        }
+    }];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
+    
+    // Associate correct cell with correct chat
+    PFObject *message = self.chatArray[indexPath.row];
+    cell.chatLabel.text = message[@"text"];
+    
+    // Set username label
+    PFUser *user = message[@"user"];
+    if (user != nil) {
+        // User found. Update username label with username
+        cell.usernameLabel.text = user.username;
+    } else {
+        // No user found, set default username
+        cell.usernameLabel.text = @"🤖";
+    }
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.chatArray.count;
+}
+
+- (void)onTimer {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2020"];
+    [query includeKey:@"user"];
+    [query orderByDescending:@"createdAt"];
+
+    // Fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.chatArray = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
@@ -51,36 +91,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
-    
-    // Associate correct cell with correct chat
-    PFObject *message = self.chatArray[indexPath.row];
-    cell.chatLabel.text = message[@"text"];
-    
-    return cell;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.chatArray.count;
-}
-
-- (void)onTimer {
-
-    PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2020"];
-    [query orderByDescending:@"createdAt"];
-
-    // Fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            self.chatArray = posts;
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-
-}
 
 @end

@@ -85,29 +85,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="Isl-F2-0lG" customClass="ChatCell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="37"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="111" id="Isl-F2-0lG" customClass="ChatCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Isl-F2-0lG" id="pCj-7L-a2x">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llh-sK-JBy">
-                                                    <rect key="frame" x="8" y="8" width="398" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlP-JR-SiZ">
+                                                    <rect key="frame" x="8" y="8" width="78.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Chat message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llh-sK-JBy">
+                                                    <rect key="frame" x="8" y="37" width="398" height="66"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="llh-sK-JBy" secondAttribute="trailing" constant="8" id="4il-PA-09p"/>
-                                                <constraint firstItem="llh-sK-JBy" firstAttribute="top" secondItem="pCj-7L-a2x" secondAttribute="top" constant="8" id="GDs-ve-JF6"/>
-                                                <constraint firstAttribute="bottom" secondItem="llh-sK-JBy" secondAttribute="bottom" constant="8" id="N5d-Do-gn2"/>
-                                                <constraint firstItem="llh-sK-JBy" firstAttribute="leading" secondItem="pCj-7L-a2x" secondAttribute="leading" constant="8" id="Nr4-k7-Jnd"/>
+                                                <constraint firstItem="GlP-JR-SiZ" firstAttribute="top" secondItem="pCj-7L-a2x" secondAttribute="top" constant="8" id="8Np-XQ-7z6"/>
+                                                <constraint firstItem="llh-sK-JBy" firstAttribute="top" secondItem="GlP-JR-SiZ" secondAttribute="bottom" constant="8" id="Ef6-qw-Bvx"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GlP-JR-SiZ" secondAttribute="trailing" constant="8" id="QV7-0b-mSy"/>
+                                                <constraint firstItem="llh-sK-JBy" firstAttribute="leading" secondItem="pCj-7L-a2x" secondAttribute="leading" constant="8" id="RRK-3W-4pZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="llh-sK-JBy" secondAttribute="trailing" constant="8" id="TTc-sg-f4w"/>
+                                                <constraint firstItem="GlP-JR-SiZ" firstAttribute="leading" secondItem="pCj-7L-a2x" secondAttribute="leading" constant="8" id="ekK-nR-qJv"/>
+                                                <constraint firstAttribute="bottom" secondItem="llh-sK-JBy" secondAttribute="bottom" constant="8" id="uey-Hy-6Ps"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chatLabel" destination="llh-sK-JBy" id="bGe-R8-aMn"/>
+                                            <outlet property="usernameLabel" destination="GlP-JR-SiZ" id="ICZ-fi-GBK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
