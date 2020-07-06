@@ -27,6 +27,7 @@
 }
 
 - (IBAction)didPressLogin:(id)sender {
+    [self loginUser];
 }
 
 - (void)registerUser {
@@ -46,6 +47,21 @@
             NSLog(@"User registered successfully");
             
             // Manually segue to logged in view
+        }
+    }];
+}
+
+- (void)loginUser {
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User logged in successfully");
+            
+            // Display view controller that needs to shown after successful login
         }
     }];
 }
